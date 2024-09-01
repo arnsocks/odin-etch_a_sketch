@@ -1,17 +1,17 @@
 body {
   background-color: aqua;
-  display: flex;
 }
 #container{
   width: 600px;
   height: 600px;
-  margin: auto;
 }
+
 .row {
   display: flex;
 }
+
 .square{
   background-color:deepskyblue;
-  height: 30px;
   width: 30px;
+  aspect-ratio: 1;
 }

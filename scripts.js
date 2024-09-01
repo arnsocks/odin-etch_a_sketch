@@ -1,12 +1,12 @@
 const gridContainer = document.querySelector("#container");
+const button = document.querySelector("#newGrid");
+button.addEventListener('click', resetGrid);
 
-initializeGrid(16, 16);
-
-function initializeGrid(width, height) {
-  for(let i = 0; i < height; i++) {
+function initializeGrid(size) {
+  for(let i = 0; i < size; i++) {
     const row = document.createElement("div");
     row.className = "row";
-    for (let j = 0; j < width; j++) {
+    for (let j = 0; j < size; j++) {
       const square = document.createElement("div");
       square.className = "square";
       row.appendChild(square);
@@ -15,6 +15,14 @@ function initializeGrid(width, height) {
     gridContainer.appendChild(row);
 
   }
+}
+
+function resetGrid() {
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.firstChild);
+  }
+  const size = window.prompt('What size grid do you want? (Max: 100)', 16);
+  initializeGrid(size);
 }
 
 function shadeSquare(){
