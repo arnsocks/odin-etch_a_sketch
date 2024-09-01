@@ -13,7 +13,6 @@ function initializeGrid(size) {
       square.addEventListener('mouseenter', shadeSquare);
     }
     gridContainer.appendChild(row);
-
   }
 }
 
@@ -21,7 +20,13 @@ function resetGrid() {
   while (gridContainer.firstChild) {
     gridContainer.removeChild(gridContainer.firstChild);
   }
-  const size = window.prompt('What size grid do you want? (Max: 100)', 16);
+  let size = 16;
+  do {
+    size = window.prompt('Please choose a number between 1 and 100', 16);
+    size = parseInt(size);
+    console.log(size);
+    console.log(typeof size);
+  } while ( size > 100 || size < 1 || isNaN(size));
   initializeGrid(size);
 }
 
