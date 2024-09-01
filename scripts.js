@@ -10,8 +10,13 @@ function initializeGrid(width, height) {
       const square = document.createElement("div");
       square.className = "square";
       row.appendChild(square);
+      square.addEventListener('mouseenter', shadeSquare);
     }
     gridContainer.appendChild(row);
 
   }
+}
+
+function shadeSquare(){
+  this.style.backgroundColor = "red";
 }
