@@ -7,7 +7,19 @@
   <script src="scripts.js" defer></script>
 </head>
 <body>
-  <button id = "newGrid">Create a new grid?</button>
+  <h1>Etch-a-Sketch</h1>
+  <div id="menu">
+    <button id = "newGrid">Create a new grid?</button>
+    <div id = "options">
+      <input type="radio" id="default" name="mode" value="default" checked>
+      <label for="default">Default</label>
+      
+      <input type="radio" id="random-color" name="mode" value="random-color">
+      <label for="random-color">Random Color</label>
+    </div>
+
+  </div>
+  
   <div id = "container"></div>
 </body>
 </html>

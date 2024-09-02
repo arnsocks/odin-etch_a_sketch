@@ -2,6 +2,14 @@ const gridContainer = document.querySelector("#container");
 const button = document.querySelector("#newGrid");
 button.addEventListener('click', resetGrid);
 
+let mode = 'default';
+
+const optionsMenu = document.querySelector('#options');
+optionsMenu.addEventListener('click', (e) => { // Update the mode based on the option selected
+  mode = e.target.value;
+  console.log(`mode is now ${mode}`);
+});
+
 function initializeGrid(size) {
   for(let i = 0; i < size; i++) {
     const row = document.createElement("div");
@@ -31,5 +39,22 @@ function resetGrid() {
 }
 
 function shadeSquare(){
-  this.style.backgroundColor = "red";
+  switch(mode) {
+    case 'default':
+      this.style.backgroundColor = "red";
+      break;
+    case 'random-color':
+      let newColor = getRandomColor();
+      console.log(newColor);
+      this.style.backgroundColor = newColor;
+      break;
+  }
+}
+
+function getRandomColor(){
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return(`rgb(${r}, ${g}, ${b})`);
+  
 }
