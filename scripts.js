@@ -10,6 +10,8 @@ optionsMenu.addEventListener('click', (e) => { // Update the mode based on the o
   console.log(`mode is now ${mode}`);
 });
 
+initializeGrid(16);
+
 function initializeGrid(size) {
   for(let i = 0; i < size; i++) {
     const row = document.createElement("div");
@@ -32,8 +34,6 @@ function resetGrid() {
   do {
     size = window.prompt('Please choose a number between 1 and 100', 16);
     size = parseInt(size);
-    console.log(size);
-    console.log(typeof size);
   } while ( size > 100 || size < 1 || isNaN(size));
   initializeGrid(size);
 }
@@ -44,9 +44,7 @@ function shadeSquare(){
       this.style.backgroundColor = "red";
       break;
     case 'random-color':
-      let newColor = getRandomColor();
-      console.log(newColor);
-      this.style.backgroundColor = newColor;
+      this.style.backgroundColor = getRandomColor();
       break;
   }
 }
@@ -56,5 +54,4 @@ function getRandomColor(){
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   return(`rgb(${r}, ${g}, ${b})`);
-  
 }
