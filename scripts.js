@@ -41,7 +41,7 @@ function resetGrid() {
 function shadeSquare(){
   switch(mode) {
     case 'default':
-      this.style.backgroundColor = "red";
+      this.style.backgroundColor = "black";
       break;
     case 'random-color':
       this.style.backgroundColor = getRandomColor();
